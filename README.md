@@ -4,7 +4,7 @@
 
 Icon Library Browser is a single-page catalog for finding interface icons from Lucide, Feather, and Font Awesome. Select an icon to adjust its size and color, copy a React snippet or SVG markup, or download an SVG file.
 
-**GitHub Pages target:** [https://a2rp.github.io/icon-library-browser/](https://a2rp.github.io/icon-library-browser/) (deployment pending)
+**Live site:** [https://a2rp.github.io/icon-library-browser/](https://a2rp.github.io/icon-library-browser/)
 
 ## What the app includes
 
@@ -55,7 +55,7 @@ npm run build
 npm run deploy
 ```
 
-The deploy command runs the production build, then publishes the `dist` folder to the `gh-pages` branch. The intended GitHub Pages URL is [https://a2rp.github.io/icon-library-browser/](https://a2rp.github.io/icon-library-browser/). Vite uses `/icon-library-browser/` as its base path. Complete repository setup and deployment before treating this URL as live. Do not commit the generated `dist` folder to `main`.
+The deploy command runs the production build, then publishes the `dist` folder to the `gh-pages` branch. This project is published at [https://a2rp.github.io/icon-library-browser/](https://a2rp.github.io/icon-library-browser/). Vite uses `/icon-library-browser/` as its base path. Do not commit the generated `dist` folder to `main`.
 
 ## Future improvements
 
