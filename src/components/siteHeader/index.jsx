@@ -83,7 +83,11 @@ const SiteHeader = ({ onShowFavorites }) => {
                         aria-label={menuOpen ? "Close menu" : "Open menu"}
                         onClick={() => setMenuOpen((open) => !open)}
                     >
-                        {menuOpen ? <LuX aria-hidden="true" /> : <LuMenu aria-hidden="true" />}
+                        {menuOpen ? (
+                            <LuX aria-hidden="true" />
+                        ) : (
+                            <LuMenu aria-hidden="true" />
+                        )}
                     </button>
                 </div>
             </div>
@@ -94,9 +98,15 @@ const SiteHeader = ({ onShowFavorites }) => {
                     id="header-menu"
                     aria-label="Mobile navigation"
                 >
-                    <a href="#library" onClick={closeMenu}>Browse icons</a>
-                    <button type="button" onClick={showFavorites}>Saved favorites</button>
-                    <a href="#guide" onClick={closeMenu}>How it works</a>
+                    <a href="#library" onClick={closeMenu}>
+                        Browse icons
+                    </a>
+                    <button type="button" onClick={showFavorites}>
+                        Saved favorites
+                    </button>
+                    <a href="#guide" onClick={closeMenu}>
+                        How it works
+                    </a>
                     <a
                         href="https://github.com/a2rp/icon-library-browser"
                         target="_blank"

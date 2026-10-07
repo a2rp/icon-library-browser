@@ -11,7 +11,9 @@
         border-radius: 12px;
         background: var(--surface);
         box-shadow: 0 3px 10px rgb(35 48 37 / 3%);
-        transition: border-color 160ms ease, box-shadow 160ms ease;
+        transition:
+            border-color 160ms ease,
+            box-shadow 160ms ease;
 
         &:focus-within {
             border-color: var(--accent);
@@ -34,7 +36,6 @@
                 cursor: pointer;
             }
         }
-
     }
 
     .searchIcon {
@@ -236,7 +237,9 @@
         border: 1px solid var(--border);
         border-radius: 11px;
         background: var(--surface);
-        transition: border-color 160ms ease, box-shadow 160ms ease;
+        transition:
+            border-color 160ms ease,
+            box-shadow 160ms ease;
 
         &:hover {
             border-color: #a8bba3;
@@ -316,7 +319,9 @@
         background: transparent;
         color: #78827a;
         opacity: 1;
-        transition: border-color 160ms ease, box-shadow 160ms ease;
+        transition:
+            border-color 160ms ease,
+            box-shadow 160ms ease;
 
         svg {
             width: 13px;
@@ -460,7 +465,6 @@
             input {
                 font-size: 12px;
             }
-
         }
 
         .resultsHeading {

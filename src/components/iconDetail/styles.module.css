@@ -42,7 +42,9 @@
         border-radius: 10px;
         background: var(--surface);
         color: var(--ink-muted);
-        transition: border-color 160ms ease, box-shadow 160ms ease;
+        transition:
+            border-color 160ms ease,
+            box-shadow 160ms ease;
 
         &:hover {
             border-color: var(--accent);
@@ -238,7 +240,9 @@
             background: var(--surface);
             font-size: 10px;
             font-weight: 700;
-            transition: border-color 160ms ease, box-shadow 160ms ease;
+            transition:
+                border-color 160ms ease,
+                box-shadow 160ms ease;
 
             &:hover {
                 border-color: var(--accent);

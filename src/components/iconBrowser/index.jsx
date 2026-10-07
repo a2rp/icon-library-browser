@@ -28,7 +28,11 @@ const IconBrowser = ({
     const favoriteCount = favoriteIds.length;
 
     return (
-        <section className={styles.browser} id="library" aria-label="Icon library">
+        <section
+            className={styles.browser}
+            id="library"
+            aria-label="Icon library"
+        >
             <div className={styles.searchBar}>
                 <LuSearch className={styles.searchIcon} aria-hidden="true" />
                 <label className={styles.visuallyHidden} htmlFor="icon-search">
@@ -49,16 +53,25 @@ const IconBrowser = ({
                         <h2>Categories</h2>
                         <span>{iconCatalog.length}</span>
                     </div>
-                    <nav className={styles.categoryList} aria-label="Filter by category">
+                    <nav
+                        className={styles.categoryList}
+                        aria-label="Filter by category"
+                    >
                         {iconCategories.map((category) => {
                             const count =
                                 category === "All icons"
                                     ? iconCatalog.length
-                                    : iconCatalog.filter((item) => item.category === category).length;
+                                    : iconCatalog.filter(
+                                          (item) => item.category === category,
+                                      ).length;
 
                             return (
                                 <button
-                                    className={activeCategory === category ? styles.categoryActive : styles.categoryButton}
+                                    className={
+                                        activeCategory === category
+                                            ? styles.categoryActive
+                                            : styles.categoryButton
+                                    }
                                     key={category}
                                     type="button"
                                     aria-pressed={activeCategory === category}
@@ -75,7 +88,11 @@ const IconBrowser = ({
                     </nav>
                     <div className={styles.sidebarDivider} />
                     <button
-                        className={favoritesOnly ? styles.favoriteFilterActive : styles.favoriteFilter}
+                        className={
+                            favoritesOnly
+                                ? styles.favoriteFilterActive
+                                : styles.favoriteFilter
+                        }
                         type="button"
                         aria-pressed={favoritesOnly}
                         onClick={() => setFavoritesOnly((current) => !current)}
@@ -92,15 +109,28 @@ const IconBrowser = ({
                 <div className={styles.results}>
                     <div className={styles.resultsHeading}>
                         <div>
-                            <h2>{favoritesOnly ? "Your favorites" : activeCategory}</h2>
-                            <p>{visibleIcons.length} {visibleIcons.length === 1 ? "icon" : "icons"} to explore</p>
+                            <h2>
+                                {favoritesOnly
+                                    ? "Your favorites"
+                                    : activeCategory}
+                            </h2>
+                            <p>
+                                {visibleIcons.length}{" "}
+                                {visibleIcons.length === 1 ? "icon" : "icons"}{" "}
+                                to explore
+                            </p>
                         </div>
-                        <label className={styles.collectionControl} htmlFor="icon-collection">
+                        <label
+                            className={styles.collectionControl}
+                            htmlFor="icon-collection"
+                        >
                             <span>Collection</span>
                             <select
                                 id="icon-collection"
                                 value={collection}
-                                onChange={(event) => setCollection(event.target.value)}
+                                onChange={(event) =>
+                                    setCollection(event.target.value)
+                                }
                             >
                                 <option>All collections</option>
                                 <option>Lucide</option>
@@ -113,12 +143,18 @@ const IconBrowser = ({
                         <div className={styles.iconGrid}>
                             {visibleIcons.map((item) => {
                                 const Icon = item.icon;
-                                const isFavorite = favoriteIds.includes(item.id);
+                                const isFavorite = favoriteIds.includes(
+                                    item.id,
+                                );
                                 const isSelected = selectedIcon.id === item.id;
 
                                 return (
                                     <article
-                                        className={isSelected ? `${styles.iconTile} ${styles.iconTileSelected}` : styles.iconTile}
+                                        className={
+                                            isSelected
+                                                ? `${styles.iconTile} ${styles.iconTileSelected}`
+                                                : styles.iconTile
+                                        }
                                         key={item.id}
                                     >
                                         <button
@@ -126,29 +162,65 @@ const IconBrowser = ({
                                             type="button"
                                             aria-pressed={isSelected}
                                             aria-label={`Preview ${item.name} from ${item.collection}`}
-                                            onClick={() => setSelectedIcon(item)}
+                                            onClick={() =>
+                                                setSelectedIcon(item)
+                                            }
                                         >
                                             <span className={styles.tileIcon}>
-                                                <Icon size={25} aria-hidden="true" />
+                                                <Icon
+                                                    size={25}
+                                                    aria-hidden="true"
+                                                />
                                             </span>
-                                            <span className={styles.tileName}>{item.name}</span>
-                                            <span className={styles.tileCollection}>{item.collection}</span>
+                                            <span className={styles.tileName}>
+                                                {item.name}
+                                            </span>
+                                            <span
+                                                className={
+                                                    styles.tileCollection
+                                                }
+                                            >
+                                                {item.collection}
+                                            </span>
                                         </button>
                                         <div className={styles.tileActions}>
                                             <button
-                                                className={isFavorite ? styles.tileFavoriteActive : styles.tileAction}
+                                                className={
+                                                    isFavorite
+                                                        ? styles.tileFavoriteActive
+                                                        : styles.tileAction
+                                                }
                                                 type="button"
-                                                aria-label={isFavorite ? `Remove ${item.name} from favorites` : `Add ${item.name} to favorites`}
+                                                aria-label={
+                                                    isFavorite
+                                                        ? `Remove ${item.name} from favorites`
+                                                        : `Add ${item.name} to favorites`
+                                                }
                                                 aria-pressed={isFavorite}
-                                                onClick={() => onToggleFavorite(item.id)}
+                                                onClick={() =>
+                                                    onToggleFavorite(item.id)
+                                                }
                                             >
-                                                {isFavorite ? <LuCheck aria-hidden="true" /> : <LuHeart aria-hidden="true" />}
+                                                {isFavorite ? (
+                                                    <LuCheck aria-hidden="true" />
+                                                ) : (
+                                                    <LuHeart aria-hidden="true" />
+                                                )}
                                             </button>
                                             <button
                                                 className={styles.tileAction}
                                                 type="button"
                                                 aria-label={`Copy ${item.name} React code`}
-                                                onClick={() => onCopy(makeJsxSnippet(item, 24, color), "React code")}
+                                                onClick={() =>
+                                                    onCopy(
+                                                        makeJsxSnippet(
+                                                            item,
+                                                            24,
+                                                            color,
+                                                        ),
+                                                        "React code",
+                                                    )
+                                                }
                                             >
                                                 <LuCopy aria-hidden="true" />
                                             </button>
@@ -159,9 +231,13 @@ const IconBrowser = ({
                         </div>
                     ) : (
                         <div className={styles.emptyState}>
-                            <span className={styles.emptyIcon}><LuSearch aria-hidden="true" /></span>
+                            <span className={styles.emptyIcon}>
+                                <LuSearch aria-hidden="true" />
+                            </span>
                             <h3>No icons found</h3>
-                            <p>Try another search or clear the active filters.</p>
+                            <p>
+                                Try another search or clear the active filters.
+                            </p>
                             <button
                                 type="button"
                                 onClick={() => {

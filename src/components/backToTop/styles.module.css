@@ -15,7 +15,9 @@
     box-shadow: 0 8px 24px rgb(32 42 35 / 20%);
     font-size: 12px;
     font-weight: 700;
-    transition: border-color 160ms ease, box-shadow 160ms ease;
+    transition:
+        border-color 160ms ease,
+        box-shadow 160ms ease;
 
     &:hover {
         border-color: var(--ink);

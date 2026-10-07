@@ -1,5 +1,10 @@
 import { useEffect, useState } from "react";
-import { LuArrowUpRight, LuDownload, LuMousePointer2, LuSearch } from "react-icons/lu";
+import {
+    LuArrowUpRight,
+    LuDownload,
+    LuMousePointer2,
+    LuSearch,
+} from "react-icons/lu";
 import BackToTop from "./components/backToTop/index.jsx";
 import IconBrowser from "./components/iconBrowser/index.jsx";
 import SiteFooter from "./components/siteFooter/index.jsx";
@@ -13,7 +18,9 @@ const readSavedFavorites = () => {
     try {
         const saved = localStorage.getItem(favoritesStorageKey);
         const parsed = saved ? JSON.parse(saved) : [];
-        return Array.isArray(parsed) ? parsed.filter((id) => typeof id === "string") : [];
+        return Array.isArray(parsed)
+            ? parsed.filter((id) => typeof id === "string")
+            : [];
     } catch {
         return [];
     }
@@ -32,7 +39,10 @@ const App = () => {
 
     useEffect(() => {
         try {
-            localStorage.setItem(favoritesStorageKey, JSON.stringify(favoriteIds));
+            localStorage.setItem(
+                favoritesStorageKey,
+                JSON.stringify(favoriteIds),
+            );
         } catch {
             return;
         }
@@ -59,9 +69,15 @@ const App = () => {
             activeCategory === "All icons" || item.category === activeCategory;
         const matchesCollection =
             collection === "All collections" || item.collection === collection;
-        const matchesFavorites = !favoritesOnly || favoriteIds.includes(item.id);
+        const matchesFavorites =
+            !favoritesOnly || favoriteIds.includes(item.id);
 
-        return matchesSearch && matchesCategory && matchesCollection && matchesFavorites;
+        return (
+            matchesSearch &&
+            matchesCategory &&
+            matchesCollection &&
+            matchesFavorites
+        );
     });
 
     const toggleFavorite = (iconId) => {
@@ -85,7 +101,9 @@ const App = () => {
         setActiveCategory("All icons");
         setCollection("All collections");
         setFavoritesOnly(true);
-        document.getElementById("library")?.scrollIntoView({ behavior: "smooth" });
+        document
+            .getElementById("library")
+            ?.scrollIntoView({ behavior: "smooth" });
     };
 
     const clearFilters = () => {
@@ -97,7 +115,9 @@ const App = () => {
 
     const browseAll = () => {
         clearFilters();
-        document.getElementById("library")?.scrollIntoView({ behavior: "smooth" });
+        document
+            .getElementById("library")
+            ?.scrollIntoView({ behavior: "smooth" });
     };
 
     return (
@@ -108,12 +128,22 @@ const App = () => {
                     <div>
                         <h1>Find the right icon, faster.</h1>
                         <p className={styles.description}>
-                            Search familiar icon collections, tune a preview, then copy the code or save an SVG.
+                            Search familiar icon collections, tune a preview,
+                            then copy the code or save an SVG.
                         </p>
                     </div>
-                    <div className={styles.libraryStats} aria-label="Library size">
-                        <div><strong>{iconCatalog.length}</strong><span>icons</span></div>
-                        <div><strong>3</strong><span>collections</span></div>
+                    <div
+                        className={styles.libraryStats}
+                        aria-label="Library size"
+                    >
+                        <div>
+                            <strong>{iconCatalog.length}</strong>
+                            <span>icons</span>
+                        </div>
+                        <div>
+                            <strong>3</strong>
+                            <span>collections</span>
+                        </div>
                     </div>
                 </section>
                 <IconBrowser
@@ -136,41 +166,81 @@ const App = () => {
                     onToggleFavorite={toggleFavorite}
                     onCopy={copyText}
                 />
-                <section className={styles.guide} id="guide" aria-labelledby="guide-title">
+                <section
+                    className={styles.guide}
+                    id="guide"
+                    aria-labelledby="guide-title"
+                >
                     <div className={styles.guideHeading}>
                         <div>
-                            <h2 id="guide-title">From search to your project</h2>
-                            <p>Choose an icon and take it with you in a few steps.</p>
+                            <h2 id="guide-title">
+                                From search to your project
+                            </h2>
+                            <p>
+                                Choose an icon and take it with you in a few
+                                steps.
+                            </p>
                         </div>
                         <button type="button" onClick={browseAll}>
-                            Browse all icons <LuArrowUpRight aria-hidden="true" />
+                            Browse all icons{" "}
+                            <LuArrowUpRight aria-hidden="true" />
                         </button>
                     </div>
                     <div className={styles.guideSteps}>
                         <article>
-                            <span className={styles.stepIcon}><LuSearch aria-hidden="true" /></span>
-                            <div><h3>Search and filter</h3><p>Look up an icon by name, keyword, category, or collection.</p></div>
+                            <span className={styles.stepIcon}>
+                                <LuSearch aria-hidden="true" />
+                            </span>
+                            <div>
+                                <h3>Search and filter</h3>
+                                <p>
+                                    Look up an icon by name, keyword, category,
+                                    or collection.
+                                </p>
+                            </div>
                             <span className={styles.stepNumber}>01</span>
                         </article>
                         <article>
-                            <span className={styles.stepIcon}><LuMousePointer2 aria-hidden="true" /></span>
-                            <div><h3>Adjust the preview</h3><p>Select a result, then change its size and color in the preview panel.</p></div>
+                            <span className={styles.stepIcon}>
+                                <LuMousePointer2 aria-hidden="true" />
+                            </span>
+                            <div>
+                                <h3>Adjust the preview</h3>
+                                <p>
+                                    Select a result, then change its size and
+                                    color in the preview panel.
+                                </p>
+                            </div>
                             <span className={styles.stepNumber}>02</span>
                         </article>
                         <article>
-                            <span className={styles.stepIcon}><LuDownload aria-hidden="true" /></span>
-                            <div><h3>Copy or download</h3><p>Copy React or SVG code, download an SVG, or keep an icon in Favorites.</p></div>
+                            <span className={styles.stepIcon}>
+                                <LuDownload aria-hidden="true" />
+                            </span>
+                            <div>
+                                <h3>Copy or download</h3>
+                                <p>
+                                    Copy React or SVG code, download an SVG, or
+                                    keep an icon in Favorites.
+                                </p>
+                            </div>
                             <span className={styles.stepNumber}>03</span>
                         </article>
                     </div>
                     <p className={styles.storageNote}>
-                        Favorites stay in this browser on this device. The icon catalog and settings do not need an account.
+                        Favorites stay in this browser on this device. The icon
+                        catalog and settings do not need an account.
                     </p>
                 </section>
             </main>
             <SiteFooter />
             <BackToTop />
-            <div className={styles.toast} role="status" aria-live="polite" aria-atomic="true">
+            <div
+                className={styles.toast}
+                role="status"
+                aria-live="polite"
+                aria-atomic="true"
+            >
                 {toast}
             </div>
         </div>

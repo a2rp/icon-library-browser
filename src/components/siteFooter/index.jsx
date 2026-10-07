@@ -1,24 +1,42 @@
 import { FaGithub } from "react-icons/fa6";
-import {
-    LuCode,
-    LuGlobe,
-    LuHeart,
-    LuMail,
-    LuUsers,
-} from "react-icons/lu";
+import { LuCode, LuGlobe, LuHeart, LuMail, LuUsers } from "react-icons/lu";
 import styles from "./styles.module.css";
 
 const profileLinks = [
     { label: "Portfolio", href: "https://www.ashishranjan.net", icon: LuGlobe },
     { label: "GitHub", href: "https://github.com/a2rp", icon: FaGithub },
     { label: "CodePen", href: "https://codepen.io/ash1198", icon: LuCode },
-    { label: "LinkedIn", href: "https://www.linkedin.com/in/aashishranjan", icon: LuUsers },
-    { label: "Facebook", href: "https://www.facebook.com/theash.ashish/", icon: LuUsers },
-    { label: "YouTube", href: "https://www.youtube.com/@ashishranjan-ashz?sub_confirmation=1", icon: LuGlobe },
+    {
+        label: "LinkedIn",
+        href: "https://www.linkedin.com/in/aashishranjan",
+        icon: LuUsers,
+    },
+    {
+        label: "Facebook",
+        href: "https://www.facebook.com/theash.ashish/",
+        icon: LuUsers,
+    },
+    {
+        label: "YouTube",
+        href: "https://www.youtube.com/@ashishranjan-ashz?sub_confirmation=1",
+        icon: LuGlobe,
+    },
     { label: "Email", href: "mailto:ash.ranjan09@gmail.com", icon: LuMail },
-    { label: "Support", href: "https://a2rp-donation-page.netlify.app/", icon: LuHeart },
-    { label: "Buy Me a Coffee", href: "https://buymeacoffee.com/ashishranjan", icon: LuHeart },
-    { label: "Patreon", href: "https://www.patreon.com/ashishranjan", icon: LuHeart },
+    {
+        label: "Support",
+        href: "https://a2rp-donation-page.netlify.app/",
+        icon: LuHeart,
+    },
+    {
+        label: "Buy Me a Coffee",
+        href: "https://buymeacoffee.com/ashishranjan",
+        icon: LuHeart,
+    },
+    {
+        label: "Patreon",
+        href: "https://www.patreon.com/ashishranjan",
+        icon: LuHeart,
+    },
 ];
 
 const SiteFooter = () => (
@@ -38,8 +56,12 @@ const SiteFooter = () => (
                     />
                 </a>
                 <p>
-                    © {new Date().getFullYear()} {" "}
-                    <a href="https://github.com/a2rp" target="_blank" rel="noreferrer">
+                    © {new Date().getFullYear()}{" "}
+                    <a
+                        href="https://github.com/a2rp"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
                         Ashish Ranjan
                     </a>
                     . All rights reserved.
@@ -59,8 +81,16 @@ const SiteFooter = () => (
                         <a
                             key={label}
                             href={href}
-                            target={href.startsWith("mailto:") ? undefined : "_blank"}
-                            rel={href.startsWith("mailto:") ? undefined : "noreferrer"}
+                            target={
+                                href.startsWith("mailto:")
+                                    ? undefined
+                                    : "_blank"
+                            }
+                            rel={
+                                href.startsWith("mailto:")
+                                    ? undefined
+                                    : "noreferrer"
+                            }
                         >
                             <Icon aria-hidden="true" /> {label}
                         </a>

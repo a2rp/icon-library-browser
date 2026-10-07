@@ -103,7 +103,8 @@ const iconNameOverrides = {
 };
 
 const createIcon = (name, icon, collection, category, tags) => {
-    const prefix = collection === "Lucide" ? "Lu" : collection === "Feather" ? "Fi" : "Fa";
+    const prefix =
+        collection === "Lucide" ? "Lu" : collection === "Feather" ? "Fi" : "Fa";
 
     return {
         id: `${collection.toLowerCase().replaceAll(" ", "-")}-${name.toLowerCase().replaceAll(" ", "-")}`,
@@ -125,91 +126,423 @@ const createIcon = (name, icon, collection, category, tags) => {
 };
 
 export const iconCatalog = [
-    createIcon("Activity", LuActivity, "Lucide", "System", ["pulse", "health", "status"]),
-    createIcon("Archive", LuArchive, "Lucide", "Files", ["box", "storage", "save"]),
-    createIcon("Arrow Up", LuArrowUp, "Lucide", "Navigation", ["top", "direction", "move"]),
-    createIcon("Bookmark", LuBookmark, "Lucide", "Productivity", ["save", "favorite", "mark"]),
-    createIcon("Briefcase", LuBriefcase, "Lucide", "Commerce", ["work", "job", "business"]),
-    createIcon("Calendar", LuCalendar, "Lucide", "Productivity", ["date", "event", "schedule"]),
-    createIcon("Camera", LuCamera, "Lucide", "Media", ["photo", "picture", "capture"]),
-    createIcon("Cloud", LuCloud, "Lucide", "System", ["weather", "storage", "sync"]),
-    createIcon("Code", LuCode, "Lucide", "System", ["developer", "brackets", "programming"]),
-    createIcon("Database", LuDatabase, "Lucide", "System", ["data", "server", "storage"]),
-    createIcon("Download", LuDownload, "Lucide", "Navigation", ["save", "export", "arrow"]),
-    createIcon("File", LuFile, "Lucide", "Files", ["document", "page", "paper"]),
-    createIcon("Filter", LuFilter, "Lucide", "Navigation", ["sort", "search", "refine"]),
-    createIcon("Folder", LuFolder, "Lucide", "Files", ["directory", "files", "project"]),
-    createIcon("Globe", LuGlobe, "Lucide", "Navigation", ["world", "web", "internet"]),
-    createIcon("Heart", LuHeart, "Lucide", "Productivity", ["love", "favorite", "like"]),
-    createIcon("Image", LuImage, "Lucide", "Media", ["picture", "photo", "gallery"]),
-    createIcon("Layers", LuLayers, "Lucide", "System", ["stack", "design", "levels"]),
-    createIcon("Link", LuLink, "Lucide", "Navigation", ["url", "chain", "share"]),
-    createIcon("Lock", LuLock, "Lucide", "System", ["secure", "password", "private"]),
-    createIcon("Mail", LuMail, "Lucide", "Communication", ["email", "message", "inbox"]),
-    createIcon("Map Pin", LuMapPin, "Lucide", "Navigation", ["location", "place", "map"]),
-    createIcon("Message Circle", LuMessageCircle, "Lucide", "Communication", ["chat", "talk", "comment"]),
-    createIcon("Package", LuPackage, "Lucide", "Commerce", ["box", "shipping", "delivery"]),
-    createIcon("Search", LuSearch, "Lucide", "Navigation", ["find", "look", "magnify"]),
-    createIcon("Settings", LuSettings, "Lucide", "System", ["preferences", "options", "gear"]),
-    createIcon("Shield", LuShield, "Lucide", "System", ["secure", "safe", "protect"]),
-    createIcon("Shopping Bag", LuShoppingBag, "Lucide", "Commerce", ["store", "cart", "buy"]),
-    createIcon("Sliders", LuSlidersHorizontal, "Lucide", "Navigation", ["settings", "controls", "tune"]),
-    createIcon("Star", LuStar, "Lucide", "Productivity", ["favorite", "rating", "save"]),
-    createIcon("Terminal", LuTerminal, "Lucide", "System", ["command", "code", "console"]),
-    createIcon("Upload", LuUpload, "Lucide", "Navigation", ["send", "import", "arrow"]),
-    createIcon("User", LuUser, "Lucide", "Communication", ["person", "account", "profile"]),
-    createIcon("Users", LuUsers, "Lucide", "Communication", ["people", "team", "group"]),
-    createIcon("Video", LuVideo, "Lucide", "Media", ["movie", "camera", "record"]),
-    createIcon("Airplay", FiAirplay, "Feather", "Media", ["screen", "cast", "display"]),
-    createIcon("Bell", FiBell, "Feather", "Communication", ["alert", "notification", "reminder"]),
-    createIcon("Box", FiBox, "Feather", "Commerce", ["package", "cube", "shipping"]),
-    createIcon("Credit Card", FiCreditCard, "Feather", "Commerce", ["payment", "bank", "wallet"]),
+    createIcon("Activity", LuActivity, "Lucide", "System", [
+        "pulse",
+        "health",
+        "status",
+    ]),
+    createIcon("Archive", LuArchive, "Lucide", "Files", [
+        "box",
+        "storage",
+        "save",
+    ]),
+    createIcon("Arrow Up", LuArrowUp, "Lucide", "Navigation", [
+        "top",
+        "direction",
+        "move",
+    ]),
+    createIcon("Bookmark", LuBookmark, "Lucide", "Productivity", [
+        "save",
+        "favorite",
+        "mark",
+    ]),
+    createIcon("Briefcase", LuBriefcase, "Lucide", "Commerce", [
+        "work",
+        "job",
+        "business",
+    ]),
+    createIcon("Calendar", LuCalendar, "Lucide", "Productivity", [
+        "date",
+        "event",
+        "schedule",
+    ]),
+    createIcon("Camera", LuCamera, "Lucide", "Media", [
+        "photo",
+        "picture",
+        "capture",
+    ]),
+    createIcon("Cloud", LuCloud, "Lucide", "System", [
+        "weather",
+        "storage",
+        "sync",
+    ]),
+    createIcon("Code", LuCode, "Lucide", "System", [
+        "developer",
+        "brackets",
+        "programming",
+    ]),
+    createIcon("Database", LuDatabase, "Lucide", "System", [
+        "data",
+        "server",
+        "storage",
+    ]),
+    createIcon("Download", LuDownload, "Lucide", "Navigation", [
+        "save",
+        "export",
+        "arrow",
+    ]),
+    createIcon("File", LuFile, "Lucide", "Files", [
+        "document",
+        "page",
+        "paper",
+    ]),
+    createIcon("Filter", LuFilter, "Lucide", "Navigation", [
+        "sort",
+        "search",
+        "refine",
+    ]),
+    createIcon("Folder", LuFolder, "Lucide", "Files", [
+        "directory",
+        "files",
+        "project",
+    ]),
+    createIcon("Globe", LuGlobe, "Lucide", "Navigation", [
+        "world",
+        "web",
+        "internet",
+    ]),
+    createIcon("Heart", LuHeart, "Lucide", "Productivity", [
+        "love",
+        "favorite",
+        "like",
+    ]),
+    createIcon("Image", LuImage, "Lucide", "Media", [
+        "picture",
+        "photo",
+        "gallery",
+    ]),
+    createIcon("Layers", LuLayers, "Lucide", "System", [
+        "stack",
+        "design",
+        "levels",
+    ]),
+    createIcon("Link", LuLink, "Lucide", "Navigation", [
+        "url",
+        "chain",
+        "share",
+    ]),
+    createIcon("Lock", LuLock, "Lucide", "System", [
+        "secure",
+        "password",
+        "private",
+    ]),
+    createIcon("Mail", LuMail, "Lucide", "Communication", [
+        "email",
+        "message",
+        "inbox",
+    ]),
+    createIcon("Map Pin", LuMapPin, "Lucide", "Navigation", [
+        "location",
+        "place",
+        "map",
+    ]),
+    createIcon("Message Circle", LuMessageCircle, "Lucide", "Communication", [
+        "chat",
+        "talk",
+        "comment",
+    ]),
+    createIcon("Package", LuPackage, "Lucide", "Commerce", [
+        "box",
+        "shipping",
+        "delivery",
+    ]),
+    createIcon("Search", LuSearch, "Lucide", "Navigation", [
+        "find",
+        "look",
+        "magnify",
+    ]),
+    createIcon("Settings", LuSettings, "Lucide", "System", [
+        "preferences",
+        "options",
+        "gear",
+    ]),
+    createIcon("Shield", LuShield, "Lucide", "System", [
+        "secure",
+        "safe",
+        "protect",
+    ]),
+    createIcon("Shopping Bag", LuShoppingBag, "Lucide", "Commerce", [
+        "store",
+        "cart",
+        "buy",
+    ]),
+    createIcon("Sliders", LuSlidersHorizontal, "Lucide", "Navigation", [
+        "settings",
+        "controls",
+        "tune",
+    ]),
+    createIcon("Star", LuStar, "Lucide", "Productivity", [
+        "favorite",
+        "rating",
+        "save",
+    ]),
+    createIcon("Terminal", LuTerminal, "Lucide", "System", [
+        "command",
+        "code",
+        "console",
+    ]),
+    createIcon("Upload", LuUpload, "Lucide", "Navigation", [
+        "send",
+        "import",
+        "arrow",
+    ]),
+    createIcon("User", LuUser, "Lucide", "Communication", [
+        "person",
+        "account",
+        "profile",
+    ]),
+    createIcon("Users", LuUsers, "Lucide", "Communication", [
+        "people",
+        "team",
+        "group",
+    ]),
+    createIcon("Video", LuVideo, "Lucide", "Media", [
+        "movie",
+        "camera",
+        "record",
+    ]),
+    createIcon("Airplay", FiAirplay, "Feather", "Media", [
+        "screen",
+        "cast",
+        "display",
+    ]),
+    createIcon("Bell", FiBell, "Feather", "Communication", [
+        "alert",
+        "notification",
+        "reminder",
+    ]),
+    createIcon("Box", FiBox, "Feather", "Commerce", [
+        "package",
+        "cube",
+        "shipping",
+    ]),
+    createIcon("Credit Card", FiCreditCard, "Feather", "Commerce", [
+        "payment",
+        "bank",
+        "wallet",
+    ]),
     createIcon("Eye", FiEye, "Feather", "System", ["view", "watch", "visible"]),
-    createIcon("GitHub", FiGithub, "Feather", "System", ["code", "repository", "git"]),
-    createIcon("Gift", FiGift, "Feather", "Commerce", ["present", "reward", "box"]),
-    createIcon("Home", FiHome, "Feather", "Navigation", ["house", "building", "start"]),
-    createIcon("Info", FiInfo, "Feather", "System", ["help", "about", "details"]),
-    createIcon("Map", FiMap, "Feather", "Navigation", ["location", "travel", "place"]),
-    createIcon("Pen Tool", FiPenTool, "Feather", "Productivity", ["edit", "draw", "design"]),
-    createIcon("Share", FiShare2, "Feather", "Navigation", ["send", "forward", "social"]),
+    createIcon("GitHub", FiGithub, "Feather", "System", [
+        "code",
+        "repository",
+        "git",
+    ]),
+    createIcon("Gift", FiGift, "Feather", "Commerce", [
+        "present",
+        "reward",
+        "box",
+    ]),
+    createIcon("Home", FiHome, "Feather", "Navigation", [
+        "house",
+        "building",
+        "start",
+    ]),
+    createIcon("Info", FiInfo, "Feather", "System", [
+        "help",
+        "about",
+        "details",
+    ]),
+    createIcon("Map", FiMap, "Feather", "Navigation", [
+        "location",
+        "travel",
+        "place",
+    ]),
+    createIcon("Pen Tool", FiPenTool, "Feather", "Productivity", [
+        "edit",
+        "draw",
+        "design",
+    ]),
+    createIcon("Share", FiShare2, "Feather", "Navigation", [
+        "send",
+        "forward",
+        "social",
+    ]),
     createIcon("Sun", FiSun, "Feather", "System", ["light", "day", "weather"]),
-    createIcon("Trash", FiTrash2, "Feather", "Files", ["delete", "remove", "bin"]),
-    createIcon("Truck", FiTruck, "Feather", "Commerce", ["delivery", "shipping", "vehicle"]),
-    createIcon("Moon", FiMoon, "Feather", "System", ["dark", "night", "weather"]),
-    createIcon("Address Book", FaAddressBook, "Font Awesome", "Communication", ["contact", "person", "directory"]),
-    createIcon("Bell", FaBell, "Font Awesome", "Communication", ["alert", "notification", "reminder"]),
-    createIcon("Calendar", FaCalendar, "Font Awesome", "Productivity", ["date", "event", "schedule"]),
-    createIcon("Camera", FaCamera, "Font Awesome", "Media", ["photo", "picture", "capture"]),
-    createIcon("Check", FaCheck, "Font Awesome", "System", ["done", "complete", "success"]),
-    createIcon("Cloud", FaCloud, "Font Awesome", "System", ["weather", "storage", "sync"]),
-    createIcon("Code", FaCode, "Font Awesome", "System", ["developer", "brackets", "programming"]),
-    createIcon("Database", FaDatabase, "Font Awesome", "System", ["data", "server", "storage"]),
-    createIcon("Download", FaDownload, "Font Awesome", "Navigation", ["save", "export", "arrow"]),
-    createIcon("Envelope", FaEnvelope, "Font Awesome", "Communication", ["email", "message", "inbox"]),
-    createIcon("File", FaFile, "Font Awesome", "Files", ["document", "page", "paper"]),
-    createIcon("Filter", FaFilter, "Font Awesome", "Navigation", ["sort", "search", "refine"]),
-    createIcon("Folder", FaFolder, "Font Awesome", "Files", ["directory", "files", "project"]),
-    createIcon("Gear", FaGear, "Font Awesome", "System", ["preferences", "options", "settings"]),
-    createIcon("Globe", FaGlobe, "Font Awesome", "Navigation", ["world", "web", "internet"]),
-    createIcon("Heart", FaHeart, "Font Awesome", "Productivity", ["love", "favorite", "like"]),
-    createIcon("House", FaHouse, "Font Awesome", "Navigation", ["home", "building", "start"]),
-    createIcon("Image", FaImage, "Font Awesome", "Media", ["picture", "photo", "gallery"]),
-    createIcon("Layers", FaLayerGroup, "Font Awesome", "System", ["stack", "design", "levels"]),
-    createIcon("Location", FaLocationDot, "Font Awesome", "Navigation", ["place", "map", "travel"]),
-    createIcon("Lock", FaLock, "Font Awesome", "System", ["secure", "password", "private"]),
-    createIcon("Message", FaMessage, "Font Awesome", "Communication", ["chat", "talk", "comment"]),
-    createIcon("Pen", FaPen, "Font Awesome", "Productivity", ["edit", "draw", "write"]),
-    createIcon("Plus", FaPlus, "Font Awesome", "System", ["add", "create", "new"]),
-    createIcon("Share", FaShareNodes, "Font Awesome", "Navigation", ["send", "forward", "social"]),
-    createIcon("Shield", FaShield, "Font Awesome", "System", ["secure", "safe", "protect"]),
-    createIcon("Shopping Bag", FaBagShopping, "Font Awesome", "Commerce", ["store", "cart", "buy"]),
-    createIcon("Star", FaStar, "Font Awesome", "Productivity", ["favorite", "rating", "save"]),
-    createIcon("Terminal", FaTerminal, "Font Awesome", "System", ["command", "code", "console"]),
-    createIcon("Trash", FaTrash, "Font Awesome", "Files", ["delete", "remove", "bin"]),
-    createIcon("Upload", FaUpload, "Font Awesome", "Navigation", ["send", "import", "arrow"]),
-    createIcon("User", FaUser, "Font Awesome", "Communication", ["person", "account", "profile"]),
-    createIcon("Users", FaUsers, "Font Awesome", "Communication", ["people", "team", "group"]),
-    createIcon("Video", FaVideo, "Font Awesome", "Media", ["movie", "camera", "record"]),
+    createIcon("Trash", FiTrash2, "Feather", "Files", [
+        "delete",
+        "remove",
+        "bin",
+    ]),
+    createIcon("Truck", FiTruck, "Feather", "Commerce", [
+        "delivery",
+        "shipping",
+        "vehicle",
+    ]),
+    createIcon("Moon", FiMoon, "Feather", "System", [
+        "dark",
+        "night",
+        "weather",
+    ]),
+    createIcon("Address Book", FaAddressBook, "Font Awesome", "Communication", [
+        "contact",
+        "person",
+        "directory",
+    ]),
+    createIcon("Bell", FaBell, "Font Awesome", "Communication", [
+        "alert",
+        "notification",
+        "reminder",
+    ]),
+    createIcon("Calendar", FaCalendar, "Font Awesome", "Productivity", [
+        "date",
+        "event",
+        "schedule",
+    ]),
+    createIcon("Camera", FaCamera, "Font Awesome", "Media", [
+        "photo",
+        "picture",
+        "capture",
+    ]),
+    createIcon("Check", FaCheck, "Font Awesome", "System", [
+        "done",
+        "complete",
+        "success",
+    ]),
+    createIcon("Cloud", FaCloud, "Font Awesome", "System", [
+        "weather",
+        "storage",
+        "sync",
+    ]),
+    createIcon("Code", FaCode, "Font Awesome", "System", [
+        "developer",
+        "brackets",
+        "programming",
+    ]),
+    createIcon("Database", FaDatabase, "Font Awesome", "System", [
+        "data",
+        "server",
+        "storage",
+    ]),
+    createIcon("Download", FaDownload, "Font Awesome", "Navigation", [
+        "save",
+        "export",
+        "arrow",
+    ]),
+    createIcon("Envelope", FaEnvelope, "Font Awesome", "Communication", [
+        "email",
+        "message",
+        "inbox",
+    ]),
+    createIcon("File", FaFile, "Font Awesome", "Files", [
+        "document",
+        "page",
+        "paper",
+    ]),
+    createIcon("Filter", FaFilter, "Font Awesome", "Navigation", [
+        "sort",
+        "search",
+        "refine",
+    ]),
+    createIcon("Folder", FaFolder, "Font Awesome", "Files", [
+        "directory",
+        "files",
+        "project",
+    ]),
+    createIcon("Gear", FaGear, "Font Awesome", "System", [
+        "preferences",
+        "options",
+        "settings",
+    ]),
+    createIcon("Globe", FaGlobe, "Font Awesome", "Navigation", [
+        "world",
+        "web",
+        "internet",
+    ]),
+    createIcon("Heart", FaHeart, "Font Awesome", "Productivity", [
+        "love",
+        "favorite",
+        "like",
+    ]),
+    createIcon("House", FaHouse, "Font Awesome", "Navigation", [
+        "home",
+        "building",
+        "start",
+    ]),
+    createIcon("Image", FaImage, "Font Awesome", "Media", [
+        "picture",
+        "photo",
+        "gallery",
+    ]),
+    createIcon("Layers", FaLayerGroup, "Font Awesome", "System", [
+        "stack",
+        "design",
+        "levels",
+    ]),
+    createIcon("Location", FaLocationDot, "Font Awesome", "Navigation", [
+        "place",
+        "map",
+        "travel",
+    ]),
+    createIcon("Lock", FaLock, "Font Awesome", "System", [
+        "secure",
+        "password",
+        "private",
+    ]),
+    createIcon("Message", FaMessage, "Font Awesome", "Communication", [
+        "chat",
+        "talk",
+        "comment",
+    ]),
+    createIcon("Pen", FaPen, "Font Awesome", "Productivity", [
+        "edit",
+        "draw",
+        "write",
+    ]),
+    createIcon("Plus", FaPlus, "Font Awesome", "System", [
+        "add",
+        "create",
+        "new",
+    ]),
+    createIcon("Share", FaShareNodes, "Font Awesome", "Navigation", [
+        "send",
+        "forward",
+        "social",
+    ]),
+    createIcon("Shield", FaShield, "Font Awesome", "System", [
+        "secure",
+        "safe",
+        "protect",
+    ]),
+    createIcon("Shopping Bag", FaBagShopping, "Font Awesome", "Commerce", [
+        "store",
+        "cart",
+        "buy",
+    ]),
+    createIcon("Star", FaStar, "Font Awesome", "Productivity", [
+        "favorite",
+        "rating",
+        "save",
+    ]),
+    createIcon("Terminal", FaTerminal, "Font Awesome", "System", [
+        "command",
+        "code",
+        "console",
+    ]),
+    createIcon("Trash", FaTrash, "Font Awesome", "Files", [
+        "delete",
+        "remove",
+        "bin",
+    ]),
+    createIcon("Upload", FaUpload, "Font Awesome", "Navigation", [
+        "send",
+        "import",
+        "arrow",
+    ]),
+    createIcon("User", FaUser, "Font Awesome", "Communication", [
+        "person",
+        "account",
+        "profile",
+    ]),
+    createIcon("Users", FaUsers, "Font Awesome", "Communication", [
+        "people",
+        "team",
+        "group",
+    ]),
+    createIcon("Video", FaVideo, "Font Awesome", "Media", [
+        "movie",
+        "camera",
+        "record",
+    ]),
 ];
 
 export const iconCategories = [
@@ -223,4 +556,9 @@ export const iconCategories = [
     "System",
 ];
 
-export const iconCollections = ["All collections", "Lucide", "Feather", "Font Awesome"];
+export const iconCollections = [
+    "All collections",
+    "Lucide",
+    "Feather",
+    "Font Awesome",
+];
