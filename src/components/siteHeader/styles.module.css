@@ -1,0 +1,198 @@
+.header {
+    position: fixed;
+    z-index: 20;
+    inset: 0 0 auto;
+    border-bottom: 1px solid var(--border);
+    background: rgb(255 254 250 / 94%);
+    backdrop-filter: blur(16px);
+
+    .headerContent {
+        width: min(100% - 56px, 1480px);
+        min-height: 76px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 28px;
+    }
+
+    .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 15px;
+        font-weight: 750;
+        letter-spacing: -0.02em;
+    }
+
+    .brandIcon {
+        width: 38px;
+        height: 38px;
+        display: grid;
+        place-items: center;
+        border-radius: 12px;
+        background: var(--accent);
+        color: white;
+
+        svg {
+            width: 19px;
+            height: 19px;
+        }
+    }
+
+    .brandText {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.1;
+    }
+
+    .brandSubtext {
+        margin-top: 4px;
+        color: var(--ink-muted);
+        font-size: 9px;
+        font-weight: 750;
+        letter-spacing: 0.16em;
+    }
+
+    .desktopNav,
+    .headerActions {
+        display: flex;
+        align-items: center;
+        gap: 26px;
+    }
+
+    .desktopNav {
+        margin-left: auto;
+        color: var(--ink-muted);
+        font-size: 13px;
+        font-weight: 650;
+
+        a,
+        button {
+            &:hover {
+                color: var(--accent);
+            }
+        }
+
+        button {
+            border: 0;
+            background: none;
+        }
+    }
+
+    .headerActions {
+        gap: 14px;
+    }
+
+    .repositoryLink {
+        min-height: 40px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 0 13px;
+        border: 1px solid var(--border);
+        border-radius: 9px;
+        background: var(--surface);
+        font-size: 12px;
+        font-weight: 700;
+        transition: border-color 160ms ease, box-shadow 160ms ease;
+
+        &:hover {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgb(49 93 72 / 9%);
+        }
+
+        svg:first-child {
+            width: 16px;
+            height: 16px;
+        }
+
+        svg:last-child {
+            width: 13px;
+            height: 13px;
+            color: var(--ink-muted);
+        }
+    }
+
+    .menuToggle {
+        width: 40px;
+        height: 40px;
+        display: none;
+        place-items: center;
+        border: 1px solid var(--border);
+        border-radius: 9px;
+        background: var(--surface);
+
+        svg {
+            width: 19px;
+            height: 19px;
+        }
+    }
+
+    .mobileMenu {
+        position: absolute;
+        top: calc(100% + 8px);
+        right: max(16px, calc((100vw - 1480px) / 2));
+        width: min(280px, calc(100vw - 32px));
+        display: grid;
+        gap: 4px;
+        padding: 9px;
+        border: 1px solid var(--border);
+        border-radius: 13px;
+        background: var(--surface);
+        box-shadow: var(--shadow);
+
+        a,
+        button {
+            min-height: 42px;
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            padding: 0 11px;
+            border: 0;
+            border-radius: 8px;
+            background: transparent;
+            color: var(--ink);
+            text-align: left;
+            font-size: 13px;
+            font-weight: 650;
+
+            &:hover {
+                background: var(--surface-muted);
+            }
+
+            svg {
+                width: 16px;
+                height: 16px;
+            }
+        }
+    }
+
+    @media (max-width: 760px) {
+        .headerContent {
+            width: min(100% - 32px, 1480px);
+            min-height: 68px;
+        }
+
+        .desktopNav {
+            display: none;
+        }
+
+        .menuToggle {
+            display: grid;
+        }
+    }
+
+    @media (max-width: 460px) {
+        .repositoryLink {
+            min-height: 38px;
+            padding: 0 10px;
+            gap: 6px;
+            font-size: 11px;
+        }
+
+        .headerActions {
+            gap: 8px;
+        }
+    }
+}
