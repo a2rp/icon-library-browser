@@ -1,0 +1,247 @@
+.appShell {
+    min-height: 100vh;
+
+    .mainContent {
+        width: min(100% - 56px, 1480px);
+        margin: 0 auto;
+        padding: 111px 0 60px;
+    }
+
+    .pageIntro {
+        min-height: 114px;
+        margin-bottom: 21px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 24px;
+
+        h1 {
+            max-width: 750px;
+            font-size: clamp(2.25rem, 4vw, 3.55rem);
+            font-weight: 760;
+            letter-spacing: -0.06em;
+            line-height: 1.03;
+        }
+    }
+
+    .description {
+        max-width: 700px;
+        margin-top: 10px;
+        color: var(--ink-muted);
+        font-size: 14px;
+    }
+
+    .libraryStats {
+        flex: 0 0 auto;
+        display: flex;
+        gap: 9px;
+
+        div {
+            min-width: 85px;
+            padding: 10px 13px;
+            display: grid;
+            justify-items: start;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: rgb(255 254 250 / 72%);
+        }
+
+        strong {
+            font-size: 18px;
+            font-weight: 750;
+            line-height: 1.1;
+        }
+
+        span {
+            margin-top: 4px;
+            color: var(--ink-muted);
+            font-size: 9px;
+        }
+    }
+
+    .guide {
+        margin-top: 24px;
+        padding: 22px;
+        border: 1px solid var(--border);
+        border-radius: 15px;
+        background: var(--surface);
+        scroll-margin-top: 96px;
+    }
+
+    .guideHeading {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 16px;
+
+        h2 {
+            font-size: 19px;
+            font-weight: 750;
+            letter-spacing: -0.035em;
+        }
+
+        p {
+            margin-top: 4px;
+            color: var(--ink-muted);
+            font-size: 12px;
+        }
+
+        button {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            padding: 7px 10px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: var(--surface);
+            font-size: 10px;
+            font-weight: 700;
+            transition: border-color 160ms ease, box-shadow 160ms ease;
+
+            &:hover {
+                border-color: var(--accent);
+                box-shadow: 0 0 0 3px rgb(49 93 72 / 8%);
+            }
+
+            svg {
+                width: 13px;
+                height: 13px;
+            }
+        }
+    }
+
+    .guideSteps {
+        margin-top: 17px;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 9px;
+
+        article {
+            min-height: 86px;
+            padding: 13px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: var(--surface-muted);
+        }
+
+        h3 {
+            font-size: 11px;
+            font-weight: 750;
+        }
+
+        p {
+            margin-top: 4px;
+            color: var(--ink-muted);
+            font-size: 10px;
+            line-height: 1.45;
+        }
+    }
+
+    .stepIcon {
+        width: 29px;
+        height: 29px;
+        flex: 0 0 auto;
+        display: grid;
+        place-items: center;
+        border-radius: 8px;
+        background: var(--accent-soft);
+        color: var(--accent-dark);
+
+        svg {
+            width: 15px;
+            height: 15px;
+        }
+    }
+
+    .stepNumber {
+        margin-left: auto;
+        color: #a3ac9e;
+        font-family: var(--font-mono);
+        font-size: 9px;
+    }
+
+    .storageNote {
+        margin-top: 13px;
+        color: var(--ink-muted);
+        font-size: 10px;
+    }
+
+    .toast {
+        position: fixed;
+        z-index: 30;
+        right: 24px;
+        bottom: 82px;
+        max-width: min(340px, calc(100vw - 32px));
+        padding: 10px 14px;
+        border: 1px solid #465c49;
+        border-radius: 9px;
+        background: #202a23;
+        color: white;
+        box-shadow: var(--shadow);
+        font-size: 11px;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 160ms ease;
+
+        &:not(:empty) {
+            opacity: 1;
+        }
+    }
+
+    @media (max-width: 900px) {
+        .guideSteps {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    @media (max-width: 760px) {
+        .mainContent {
+            width: min(100% - 32px, 1480px);
+            padding-top: 93px;
+        }
+
+        .pageIntro {
+            min-height: auto;
+            align-items: flex-start;
+            flex-direction: column;
+            gap: 17px;
+
+            h1 {
+                max-width: 560px;
+                font-size: clamp(2.15rem, 9vw, 3.15rem);
+            }
+        }
+
+        .libraryStats {
+            div {
+                min-width: 83px;
+            }
+        }
+
+        .guide {
+            padding: 16px;
+        }
+    }
+
+    @media (max-width: 500px) {
+        .description {
+            font-size: 12px;
+        }
+
+        .guideHeading {
+            align-items: flex-start;
+            flex-direction: column;
+        }
+
+        .guideHeading button {
+            min-height: 34px;
+        }
+
+        .guideSteps article {
+            padding: 11px;
+        }
+    }
+}
