@@ -53,8 +53,9 @@ const IconBrowser = ({
                         <h2>Categories</h2>
                         <span>{iconCatalog.length}</span>
                     </div>
-                    <nav
+                    <div
                         className={styles.categoryList}
+                        role="group"
                         aria-label="Filter by category"
                     >
                         {iconCategories.map((category) => {
@@ -85,7 +86,7 @@ const IconBrowser = ({
                                 </button>
                             );
                         })}
-                    </nav>
+                    </div>
                     <div className={styles.sidebarDivider} />
                     <button
                         className={
@@ -114,7 +115,7 @@ const IconBrowser = ({
                                     ? "Your favorites"
                                     : activeCategory}
                             </h2>
-                            <p>
+                            <p role="status" aria-live="polite" aria-atomic="true">
                                 {visibleIcons.length}{" "}
                                 {visibleIcons.length === 1 ? "icon" : "icons"}{" "}
                                 to explore

@@ -94,14 +94,13 @@ const IconDetail = ({
                 <h3>Use this icon</h3>
                 <div
                     className={styles.formatTabs}
-                    role="tablist"
+                    role="group"
                     aria-label="Code format"
                 >
                     <button
                         className={format === "jsx" ? styles.formatActive : ""}
                         type="button"
-                        role="tab"
-                        aria-selected={format === "jsx"}
+                        aria-pressed={format === "jsx"}
                         onClick={() => setFormat("jsx")}
                     >
                         React
@@ -109,8 +108,7 @@ const IconDetail = ({
                     <button
                         className={format === "svg" ? styles.formatActive : ""}
                         type="button"
-                        role="tab"
-                        aria-selected={format === "svg"}
+                        aria-pressed={format === "svg"}
                         onClick={() => setFormat("svg")}
                     >
                         SVG

@@ -13,13 +13,21 @@ import { iconCatalog } from "./data/iconCatalog.js";
 import styles from "./App.module.css";
 
 const favoritesStorageKey = "icon-library-browser-favorites";
+const catalogIconIds = new Set(iconCatalog.map(({ id }) => id));
 
 const readSavedFavorites = () => {
     try {
         const saved = localStorage.getItem(favoritesStorageKey);
         const parsed = saved ? JSON.parse(saved) : [];
         return Array.isArray(parsed)
-            ? parsed.filter((id) => typeof id === "string")
+            ? [
+                  ...new Set(
+                      parsed.filter(
+                          (id) =>
+                              typeof id === "string" && catalogIconIds.has(id),
+                      ),
+                  ),
+              ]
             : [];
     } catch {
         return [];
@@ -97,13 +105,19 @@ const App = () => {
         }
     };
 
+    const scrollToLibrary = () => {
+        const behavior = window.matchMedia("(prefers-reduced-motion: reduce)")
+            .matches
+            ? "auto"
+            : "smooth";
+        document.getElementById("library")?.scrollIntoView({ behavior });
+    };
+
     const showFavorites = () => {
         setActiveCategory("All icons");
         setCollection("All collections");
         setFavoritesOnly(true);
-        document
-            .getElementById("library")
-            ?.scrollIntoView({ behavior: "smooth" });
+        scrollToLibrary();
     };
 
     const clearFilters = () => {
@@ -115,9 +129,7 @@ const App = () => {
 
     const browseAll = () => {
         clearFilters();
-        document
-            .getElementById("library")
-            ?.scrollIntoView({ behavior: "smooth" });
+        scrollToLibrary();
     };
 
     return (

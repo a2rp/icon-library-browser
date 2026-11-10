@@ -28,7 +28,7 @@ Icon Library Browser is a single-page catalog for finding interface icons from L
 5. Select **Download SVG** to save the current icon, size, and color as an SVG file.
 6. Select the heart on an icon tile or in the preview panel to save it. Use Favorites to show saved icons.
 
-The small copy control on each icon tile copies a React snippet at the default 24px size and the library's default green color. The main preview controls are used for the larger code example and downloaded file. If the browser blocks clipboard access, the app displays a message and leaves the code visible for manual copying.
+The small copy control on each icon tile copies a React snippet at 24px using the current preview color. The main preview controls are used for the larger code example and downloaded file. If the browser blocks clipboard access, the app displays a message and leaves the code visible for manual copying.
 
 ## How data is stored
 
